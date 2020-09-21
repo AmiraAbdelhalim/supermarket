@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'supermarket_app',
+    'phone_field',
 ]
 
 MIDDLEWARE = [
@@ -75,8 +76,23 @@ WSGI_APPLICATION = 'xontel_supermarket.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 DATABASES = {
-    'default': dict(ENGINE='django.db.backends.mysql', NAME='supermarket', USER='amira', PASSWORD='koko')
+    'default': {
+
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+
+        'NAME': 'supermarket',
+
+        'USER': 'postgres',
+
+        'PASSWORD': 'koko',
+
+        'HOST': 'localhost',
+
+        'PORT': '',
+
+    }
 }
+    
 
 
 # Password validation

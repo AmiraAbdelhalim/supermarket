@@ -1,16 +1,9 @@
 from django.db import models
 from phone_field import PhoneField
 from django.utils import timezone
-from django.contrib import auth
-from django.contrib.auth.models import User
 
 
 # Create your models here.
-
-class Users(auth.models.User):
-
-    def __str__(self):
-        return self.username
 
 
 class Customer(models.Model):
