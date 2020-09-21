@@ -19,7 +19,7 @@
                     <th scope="row">{{invoice.id}}</th>
                     <td>{{invoice.customer_id.name}}</td>
                     <td>{{invoice.product_id.name}}</td>
-                    <td><a href="#">View</a></td>
+                    <td><a href="/pdf/{{invoice.id}}">View</a></td>
                 </tr>
             {% endfor %}
         </tbody>
