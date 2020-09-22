@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from .models import Customer, Product, Invoice
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.views.generic import View
+from .forms import InvoiceForm
 
 from .utils import render_to_pdf
 
@@ -24,7 +25,16 @@ def InvoiceList(request):
     }
     return render(request, 'invoice.html', context)
 
-
+def CreateInvoice(request):
+    if request.method=='POST':
+        invoice_form = InvoiceForm(request.POST)
+        if invoice_form.is_valid():
+            invoice_form.save()
+            return HttpResponseRedirect('/invoices')
+    else:
+        invoice_form = InvoiceForm()
+        context = {'invoice_form':invoice_form}
+        return render(request, 'create_invoice.html', context)
 
 
 class GeneratePdf(View):

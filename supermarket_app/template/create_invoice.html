@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block title %}Invoices{% endblock %}
+
+{% block content %}
+    <form method="POST"> {% csrf_token%}
+	    {{invoice_form.as_p}}
+        <button type="submit">Save</button>
+    </form>
+{% endblock %}
