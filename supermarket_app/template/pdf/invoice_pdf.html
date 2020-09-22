@@ -44,8 +44,11 @@
         <div>
         <div class='details'>
             Customer: {{customer_name}} <br/>
-            Product:  {{product_name}}<br/>
-            price: {{price}}<br/>
+            Product:  
+            {% for product in products.all%}
+            {{product.name}}
+            {%endfor%}<br/>
+            <!-- price: {{price}}<br/> -->
             created at: {{date}}
             <hr class='hrItem' />
         </div>

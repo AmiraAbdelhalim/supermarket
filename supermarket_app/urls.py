@@ -9,7 +9,7 @@ urlpatterns =[
     path('customers/', views.CustomerList, name='customers'),
     path('products/', views.ProductList, name='products'),
     path('invoices/', views.InvoiceList, name='invoices'),
-    path('invoices/pdf/<id>', views.GeneratePdf.as_view(), name='invoice_pdf'),
+    path('pdf/<id>', views.GeneratePdf.as_view(), name='invoice_pdf'),
 
 
 

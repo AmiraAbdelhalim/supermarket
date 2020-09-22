@@ -29,12 +29,13 @@ def InvoiceList(request):
 
 class GeneratePdf(View):
     def get(self, request, id, *args, **kwargs):
+        p = []
         invoice = Invoice.objects.get(id = id)
         data = {
             'id': invoice.id,
             'customer_name': invoice.customer_id.name,
-            'product_name': invoice.product_id.name,
-            'price': invoice.product_id.price,
+            'products': invoice.products,
+            # 'price': invoice.product_id.price,
             'date':invoice.created_on
         }
         pdf = render_to_pdf('pdf/invoice_pdf.html', data)

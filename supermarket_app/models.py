@@ -28,7 +28,7 @@ class Product(models.Model):
 
 class Invoice(models.Model):
     customer_id = models.ForeignKey(Customer, on_delete=models.CASCADE)
-    product_id = models.ForeignKey(Product, on_delete=models.CASCADE)
+    products = models.ManyToManyField(Product)
     shipping_address = models.TextField(max_length=200)
     created_on = models.DateTimeField(auto_now_add=True)
 
