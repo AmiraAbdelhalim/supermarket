@@ -34,6 +34,9 @@
                 color: #333; /* old IE */
                 background-color: #fff; /* Modern Browsers */
             }
+            .total{
+                margin-left: 550px;
+            }
         </style>
     </head>
     <body>
@@ -44,11 +47,28 @@
         <div>
         <div class='details'>
             Customer: {{customer_name}} <br/>
-            Product:  
-            {% for product in products.all%}
-            {{product.name}}
-            {%endfor%}<br/>
-            <!-- price: {{price}}<br/> -->
+            <table class="table table-bordered">
+                <thead>
+                    <th scope="col">product</th>
+                    <th scope="col">price</th>
+                    <!-- <th scope="col">total</th> -->
+                </thead>
+                <tbody>
+                    {% for product in products.all%}
+                    <tr>
+                        <td>{{product.name}}</td>
+                        <td>{{product.price}}</td>
+                        
+
+                    </tr>    
+                    {%endfor%}
+                    <tr>
+                        <!-- <td class="total">5</td> -->
+                        <td>Total</td> <td>{{total_price}}</td>
+                    </tr>
+                </tbody>
+            </table>  
+            
             created at: {{date}}
             <hr class='hrItem' />
         </div>

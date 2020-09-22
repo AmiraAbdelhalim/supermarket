@@ -19,7 +19,7 @@ class Customer(models.Model):
 
 class Product(models.Model):
     name = models.CharField(max_length=191)
-    price = models.IntegerField()
+    price = models.DecimalField(max_digits=8, decimal_places=2)
     available_quantity = models.IntegerField()
 
     def __str__(self):
